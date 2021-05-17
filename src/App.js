@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+import LastSearch from "./last-search/last-search";
+import SearchPanel from "./search-panel/search-panel";
+import Cards from "./cards/cards";
+import PreLoader from './pre-loader/pre-loader';
+
+import "./App.css";
+
+const App = () => {
+  
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=yellow+flowers&image_type=photo&pretty=true"
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setState(result.hits);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <SearchPanel />
+      <LastSearch />
+      {state ? <Cards state={state} /> : <PreLoader/>}
     </div>
   );
-}
+};
 
 export default App;
