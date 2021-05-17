@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import LastSearch from "./last-search/last-search";
 import SearchPanel from "./search-panel/search-panel";
 import Cards from "./cards/cards";
-import PreLoader from './pre-loader/pre-loader';
+import PreLoader from "./pre-loader/pre-loader";
 
 import "./App.css";
 
 const App = () => {
-  
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const App = () => {
     <div className="app">
       <SearchPanel />
       <LastSearch />
-      {state ? <Cards state={state} /> : <PreLoader/>}
+      {state ? <Cards state={state} /> : <PreLoader />}
     </div>
   );
 };
