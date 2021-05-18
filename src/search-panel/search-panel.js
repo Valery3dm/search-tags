@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -31,4 +32,13 @@ const SearchPanel = () => {
     );
   };
 
-export default SearchPanel;
+export default connect(
+  (state) => ({
+    itemsList: state.itemsList
+  }),
+  (dispatch) => ({
+    onSetItemsToState: (fetchedItems) => {
+      dispatch({ type: "SET_THREE_LAST_ITEMS", payload: fetchedItems });
+    }
+  })
+)(SearchPanel);

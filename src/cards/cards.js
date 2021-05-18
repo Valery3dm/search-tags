@@ -7,7 +7,7 @@ const Cards = (props) => {
 
   return (
     <ul className>
-      {props.state.map((item) => (
+      {props.itemsList.map((item) => (
         <li key={item.id}>
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={item.previewURL} />

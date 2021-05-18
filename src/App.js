@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from 'react-redux';
 
 import LastSearch from "./last-search/last-search";
 import SearchPanel from "./search-panel/search-panel";
@@ -7,8 +8,9 @@ import PreLoader from "./pre-loader/pre-loader";
 
 import "./App.css";
 
-const App = () => {
-  const [state, setState] = useState([]);
+const App = (props) => {
+
+  const { itemsList, onSetItemsToState } = props;
 
   useEffect(() => {
     fetch(
@@ -16,17 +18,26 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((result) => {
-        setState(result.hits);
+        onSetItemsToState(result.hits)
       });
-  }, []);
+  }, [onSetItemsToState]);
 
   return (
     <div className="app">
       <SearchPanel />
       <LastSearch />
-      {state ? <Cards state={state} /> : <PreLoader />}
+      {itemsList ? <Cards itemsList={itemsList} /> : <PreLoader />}
     </div>
   );
 };
 
-export default App;
+export default connect(
+  (state) => ({
+    itemsList: state.itemsList
+  }),
+  (dispatch) => ({
+    onSetItemsToState: (fetchedItems) => {
+      dispatch({ type: "FETCH_ITEMS", payload: fetchedItems });
+    }
+  })
+)(App);
