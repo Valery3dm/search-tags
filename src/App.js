@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import LastSearch from "./last-search/last-search";
-import SearchPanel from "./search-panel/search-panel";
-import Cards from "./cards/cards";
-import PreLoader from './pre-loader/pre-loader';
-
-import "./App.css";
+import LastSearch from "./components/last-search";
+import SearchPanel from "./components/search-panel";
+import Cards from "./components/cards";
+import PreLoader from "./components/pre-loader";
+import AppStyled from "./styled/app-styled";
 
 const App = () => {
-  
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -22,11 +20,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
+    <AppStyled>
       <SearchPanel />
       <LastSearch />
-      {state ? <Cards state={state} /> : <PreLoader/>}
-    </div>
+      {state ? <Cards state={state} /> : <PreLoader />}
+    </AppStyled>
   );
 };
 
