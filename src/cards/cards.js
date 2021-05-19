@@ -5,18 +5,20 @@ import "./cards.css";
 
 const Cards = (props) => {
 
+  const viewCard = props.itemsList.map((item) => (
+    <li key={item.id}>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={item.previewURL} />
+        <Card.Body>
+          <Card.Title>{item.tags}</Card.Title>
+        </Card.Body>
+      </Card>
+    </li>
+  ))
+
   return (
     <ul className>
-      {props.itemsList.map((item) => (
-        <li key={item.id}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={item.previewURL} />
-            <Card.Body>
-              <Card.Title>{item.tags}</Card.Title>
-            </Card.Body>
-          </Card>
-        </li>
-      ))}
+      {viewCard}
     </ul>
   );
 };

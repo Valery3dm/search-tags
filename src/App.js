@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
 import LastSearch from "./last-search/last-search";
 import SearchPanel from "./search-panel/search-panel";
@@ -8,9 +8,13 @@ import PreLoader from "./pre-loader/pre-loader";
 
 import "./App.css";
 
-const App = (props) => {
+const App = () => {
+  const dispatch = useDispatch();
+  const itemsList = useSelector((state) => state.itemsList);
+  const listOfThreeLastItems = useSelector(state => state.listOfThreeLastItems)
 
-  const { itemsList, onSetItemsToState } = props;
+  const onSetItemsToState = (fechedItems) =>
+    dispatch({ type: "FETCH_ITEMS", payload: fechedItems });
 
   useEffect(() => {
     fetch(
@@ -18,26 +22,17 @@ const App = (props) => {
     )
       .then((res) => res.json())
       .then((result) => {
-        onSetItemsToState(result.hits)
+        onSetItemsToState(result.hits);
       });
-  }, [onSetItemsToState]);
+  }, []);
 
   return (
     <div className="app">
       <SearchPanel />
-      <LastSearch />
+      <LastSearch listOfThreeLastItems={listOfThreeLastItems}/>
       {itemsList ? <Cards itemsList={itemsList} /> : <PreLoader />}
     </div>
   );
 };
 
-export default connect(
-  (state) => ({
-    itemsList: state.itemsList
-  }),
-  (dispatch) => ({
-    onSetItemsToState: (fetchedItems) => {
-      dispatch({ type: "FETCH_ITEMS", payload: fetchedItems });
-    }
-  })
-)(App);
+export default App;

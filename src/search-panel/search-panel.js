@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -10,10 +10,13 @@ import "./search-panel.css"
 
 const SearchPanel = () => {
 
-  const [ inputValue, setInputValue ] = useState('');
+  const dispatch = useDispatch();
+  const inputItem = useSelector(state => state.inputItem);
 
+  const setInputItem = (value) => dispatch({ type: "SET_INPUT_ITEM", payload: value})
+  const setTags = (inputItem) => dispatch({ type: "SET_THREE_LAST_ITEMS", payload: inputItem})
   
-
+  
     return (
 
         <InputGroup className="mb-3 inputGroup">
@@ -21,24 +24,15 @@ const SearchPanel = () => {
             placeholder="type your tag here"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
+            onChange={(e) => setInputItem(e.target.value)}
+            value={inputItem}
           />
           <InputGroup.Append>
-            <NavLink to={`/${inputValue}`}><Button variant="outline-secondary">Search</Button></NavLink>
+            <NavLink to={`/${inputItem}`}><Button variant="outline-secondary" onClick={() => setTags(inputItem)}>Search</Button></NavLink>
           </InputGroup.Append>
           </InputGroup>
 
     );
   };
 
-export default connect(
-  (state) => ({
-    itemsList: state.itemsList
-  }),
-  (dispatch) => ({
-    onSetItemsToState: (fetchedItems) => {
-      dispatch({ type: "SET_THREE_LAST_ITEMS", payload: fetchedItems });
-    }
-  })
-)(SearchPanel);
+export default SearchPanel;
