@@ -17,7 +17,7 @@ const LastSearch = (props) => {
   border-radius: 3px;
 `;
 
-const viewTags = props.listOfThreeLastItems.slice(-3).map((item) => (
+const viewTags = props.listOfThreeLastItems.map((item) => (
       <li>
         <Button>{item}</Button>
       </li>
