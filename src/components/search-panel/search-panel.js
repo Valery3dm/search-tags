@@ -6,7 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-import { setInputItemAction, setThreeLastAction } from "../../store/ducks/widgets";
+import { duck } from "../../store/ducks/widgets";
 
 import "./search-panel.css"
 
@@ -15,11 +15,11 @@ const SearchPanel = () => {
     const dispatch = useDispatch();
     const inputItem = useSelector(state => state.inputItem);
 
-    const setInputItem = (value) => dispatch(setInputItemAction(value));
+    const setInputItem = (value) => dispatch(duck().actionCreators.setInputItemAction(value));
 
     const setTags = (inputItem) => {
       if (inputItem.length !== 0) {
-        return dispatch(setThreeLastAction(inputItem))
+        return dispatch(duck().actionCreators.setThreeLastAction(inputItem))
       }
     }
 

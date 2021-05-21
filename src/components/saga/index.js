@@ -1,4 +1,4 @@
-import { all } from "redux-saga/effects";
+/* import { all } from "redux-saga/effects";
 import { fetchItemsWatcher } from "./items-saga";
 
 function* rootWatcher() {
@@ -6,3 +6,4 @@ function* rootWatcher() {
 }
 
 export default rootWatcher;
+ */
