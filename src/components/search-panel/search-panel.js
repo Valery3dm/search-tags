@@ -8,18 +8,17 @@ import Button from "react-bootstrap/Button";
 
 import { duck } from "../../store/ducks/widgets";
 
-import "./search-panel.css"
+import "./search-panel.css";
 
 const SearchPanel = () => {
 
     const dispatch = useDispatch();
     const inputItem = useSelector(state => state.inputItem);
-
-    const setInputItem = (value) => dispatch(duck().actionCreators.setInputItemAction(value));
+    const setInputItem = (value) => dispatch(duck.actionCreators.setInputItemAction(value));
 
     const setTags = (inputItem) => {
       if (inputItem.length !== 0) {
-        return dispatch(duck().actionCreators.setThreeLastAction(inputItem))
+        return dispatch(duck.actionCreators.setThreeLastAction(inputItem))
       }
     }
 

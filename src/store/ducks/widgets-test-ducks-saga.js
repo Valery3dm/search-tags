@@ -133,3 +133,58 @@ const listDuck = new ListDuck({
     }
   }
 }); */
+
+
+/* const actionTypes = {
+  FETCH_ITEMS: `search-tags/reducer/"FETCH_ITEMS`,
+  SET_FETCHED_ITEMS: `search-tags/reducer/"SET_FETCHED_ITMS`,
+  SET_THREE_LAST_ITEMS: `search-tags/reducer/"SET_THREE_LASTITEMS`,
+  SET_INPUT_ITEM: `search-tags/reducer/"SET_INPUT_ITEM`,
+};
+
+export const actionCreators = {
+  fetchItemsAction: () => ({type: actionTypes.FETCH_ITEMS}),
+  setFetchedItemsAction: (payload) => ({type: actionTypes.SET_FETCHED_ITEMS,payload}),
+  setThreeLastAction: (payload) => ({type: actionTypes.SET_THREE_LAST_ITEMS,payload}),
+  setInputItemAction: (payload) => ({type: actionTypes.SET_INPUT_ITEM,payload}),
+  fetchItemsFromApi: () => fetch("https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=yellow+flowers&image_type=photo&pretty=true")
+};
+
+export const reducer = (state = initialState, action = {}) => {
+     switch (action.type) {
+       case actionTypes.SET_FETCHED_ITEMS:
+         return {
+           ...state,
+           itemsList: action.payload,
+         };
+       case actionTypes.SET_THREE_LAST_ITEMS:
+         return {
+           ...state,
+           listOfThreeLastItems: [
+             ...state.listOfThreeLastItems.slice(-2),
+             action.payload,
+           ],
+         };
+       case actionTypes.SET_INPUT_ITEM:
+         return {
+           ...state,
+           inputItem: action.payload,
+         };
+       default:
+         return state;
+     }
+   }
+
+export function* rootWatcher() {
+
+  function* fetchItemsWorker() {
+    yield takeEvery(actionTypes.FETCH_ITEMS, function* () {
+      const data = yield call(actionCreators.fetchItemsFromApi);
+      const json = yield call(() => new Promise((res) => res(data.json())));
+      yield put(
+        actionCreators.setFetchedItemsAction(json.hits)
+      );
+    });
+  }
+  yield all([fetchItemsWorker()])
+} */

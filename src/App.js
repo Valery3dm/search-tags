@@ -18,7 +18,7 @@ const App = () => {
   );
 
   useEffect(() => {
-    dispatch(duck().actionCreators.fetchItemsAction());
+    dispatch(duck.actionCreators.fetchItemsAction());
   }, [dispatch]);
 
   return (

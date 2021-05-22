@@ -1,5 +1,5 @@
 /* import { put, takeEvery, call } from "redux-saga/effects";
-import { duck } from "../../store/ducks/widgets";
+import { actionCreators, actionTypes } from "../../store/ducks/widgets";
 
 const fetchItemsFromApi = () =>
   fetch(
@@ -9,9 +9,9 @@ const fetchItemsFromApi = () =>
 function* fetchItemsWorker() {
   const data = yield call(fetchItemsFromApi);
   const json = yield call(() => new Promise((res) => res(data.json())));
-  yield put(duck.actionCreators.setFetchedItemsAction(json.hits));
+  yield put(actionCreators.setFetchedItemsAction(json.hits));
 }
 
-export function* fetchItemsWatcher() {
-  yield takeEvery(duck.actionTypes.FETCH_ITEMS, fetchItemsWorker);
+export default function* fetchItemsWatcher() {
+  yield takeEvery( actionTypes.FETCH_ITEMS, fetchItemsWorker);
 } */
