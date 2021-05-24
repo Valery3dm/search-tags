@@ -4,10 +4,12 @@ import createSagaMiddleware from "redux-saga";
 
 import { duck } from "./ducks/widgets";
 
-
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(duck.reducers.reducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+const store = createStore(
+  duck.reducers.reducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 
 export default store;
 

@@ -4,8 +4,7 @@ import Card from "react-bootstrap/Card";
 import "./cards.css";
 
 const Cards = (props) => {
-
-  const viewCard = props.itemsList.map((item) => (
+  const viewCard = props.viewList.map((item) => (
     <li key={item.id}>
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={item.previewURL} />
@@ -14,13 +13,9 @@ const Cards = (props) => {
         </Card.Body>
       </Card>
     </li>
-  ))
+  ));
 
-  return (
-    <ul className>
-      {viewCard}
-    </ul>
-  );
+  return <ul className>{viewCard}</ul>;
 };
 
 export default Cards;

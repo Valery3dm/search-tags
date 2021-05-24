@@ -16,6 +16,7 @@ const App = () => {
   const listOfThreeLastItems = useSelector(
     (state) => state.listOfThreeLastItems
   );
+  const searchedItem = useSelector((state) => state.searchedItem);
 
   useEffect(() => {
     dispatch(duck.actionCreators.fetchItemsAction());
@@ -25,7 +26,11 @@ const App = () => {
     <div className="app">
       <SearchPanel />
       <LastSearch listOfThreeLastItems={listOfThreeLastItems} />
-      {itemsList ? <Cards itemsList={itemsList} /> : <PreLoader />}
+
+      {itemsList || searchedItem ? (
+        <Cards
+          viewList={searchedItem.length !== 0 ? searchedItem : itemsList}/>) 
+          : (<PreLoader />)}
     </div>
   );
 };
