@@ -10,6 +10,12 @@ const LastItemSearch = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px 20px 10px;
+  margin: 0px 10px 0px 10px;
 `;
-export { LastItemSearch, ButtonStyled };
+
+const LastThreeItemSearch = styled.ul`
+  display: flex;
+  list-style-type: none;
+  padding-left: 0px;
+`
+export { LastItemSearch, ButtonStyled, LastThreeItemSearch };

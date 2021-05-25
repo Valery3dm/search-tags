@@ -5,10 +5,10 @@ import { ListCards, CardStyled, CardImgStyled } from "../styled/cards-styled";
 
 const Cards = (props) => (
   <ListCards>
-    {props.state.map((item) => (
+    {props.viewList.map((item) => (
       <li key={item.id}>
         <CardStyled>
-          <CardImgStyled variant="top" src={item.previewURL} />
+          <CardImgStyled variant="top" src={item.largeImageURL} />
           <Card.Body>
             <Card.Title>{item.tags}</Card.Title>
           </Card.Body>
