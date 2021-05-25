@@ -3,9 +3,9 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { ListCards, CardStyled, CardImgStyled } from "../styled/cards-styled";
 
-const Cards = (props) => (
+const Cards = props => (
   <ListCards>
-    {props.viewList.map((item) => (
+    {props.viewList.map(item => (
       <li key={item.id}>
         <CardStyled>
           <CardImgStyled variant="top" src={item.largeImageURL} />

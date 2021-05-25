@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 
 const ButtonStyled = styled(Button)`
-  margin: 4px 2px 0px 2px;
+  margin: 10px 4px 0px 4px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 `;
 
 const LastItemSearch = styled.div`

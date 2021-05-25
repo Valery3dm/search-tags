@@ -12,8 +12,9 @@ const ListCards = styled.ul`
 
 const CardStyled = styled(Card)`
   width: 18rem;
-  margin: 3px;
+  margin: 5px;
   height: 18rem;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 `;
 const CardImgStyled = styled(Card.Img)`
   height: 12rem;
