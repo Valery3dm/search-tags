@@ -1,4 +1,4 @@
-import Rotate from "../styled/pre-loader-style";
+import { Rotate } from '../styled';
 
 const PreLoader = () => <Rotate>&lt; 🌸 &gt;</Rotate>;
 

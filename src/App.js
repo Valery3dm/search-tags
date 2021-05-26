@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import LastSearch from "./components/last-search";
-import SearchPanel from "./components/search-panel";
-import Cards from "./components/cards";
-import AppStyled from "./styled/app-styled";
+import { LastSearch } from './components';
+import { SearchPanel } from './components';
+import { Cards } from './components';
+import { PreLoader } from './components';
 
-import PreLoader from "./components/pre-loader";
+import { duck } from './store/ducks/widgets';
 
-import { duck } from "./store/ducks/widgets";
+import { AppStyled } from './styled';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,10 +30,11 @@ const App = () => {
     <AppStyled>
       <SearchPanel />
       <LastSearch listOfThreeLastItems={listOfThreeLastItems} />
-      {isLoaded ? 
-        (<Cards viewList={viewList}/>) 
-        : (<PreLoader />)
-      }
+      {isLoaded ? (
+              <Cards viewList={viewList}/>
+      ) : (
+              <PreLoader />
+      )}
     </AppStyled>
   );
 };

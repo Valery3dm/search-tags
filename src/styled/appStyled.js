@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const AppStyled = styled.div`
   display: flex;
@@ -6,4 +6,5 @@ const AppStyled = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export default AppStyled;

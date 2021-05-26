@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Button from "react-bootstrap/Button";
+import styled from 'styled-components';
+import Button from 'react-bootstrap/Button';
 
 const ButtonStyled = styled(Button)`
   margin: 10px 4px 0px 4px;
@@ -19,4 +19,5 @@ const LastThreeItemSearch = styled.ul`
   list-style-type: none;
   padding-left: 0px;
 `
+
 export { LastItemSearch, ButtonStyled, LastThreeItemSearch };

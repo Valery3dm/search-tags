@@ -1,16 +1,15 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
-import { duck } from "../store/ducks/widgets";
+import { duck } from '../store/ducks/widgets';
 
-import { LastItemSearch, ButtonStyled, LastThreeItemSearch } from "../styled/last-search-style";
+import { LastItemSearch, ButtonStyled, LastThreeItemSearch } from '../styled';
 
-const LastSearch = props => {
+const LastSearch = ({ listOfThreeLastItems }) => {
 
   const dispatch = useDispatch();
   const itemsList = useSelector(state => state.itemsList);
-
 
   const setInputItemAction = item => dispatch(duck.actionCreators.setInputItemAction(item))
 
@@ -26,7 +25,7 @@ const LastSearch = props => {
     setInputItemAction(item);
   }
 
-  const viewTags = props.listOfThreeLastItems.map((item, idx) => (
+  const viewTags = listOfThreeLastItems.map((item, idx) => (
     <li key={idx}>
         <Link to={`/${item}`}>
         <ButtonStyled variant="outline-dark" onClick={() => handleSetTags(item)}>{item}</ButtonStyled>

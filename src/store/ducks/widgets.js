@@ -1,5 +1,5 @@
-import { put, takeEvery, call } from "redux-saga/effects";
-import { Duck } from "saga-duck";
+import { put, takeEvery, call } from 'redux-saga/effects';
+import { Duck } from 'saga-duck';
 
 const initialState = {
   itemsList: [],
@@ -94,7 +94,7 @@ class SingleDuck extends Duck {
     };
   }
 
-  *saga() {
+  *sagaFetchItems() {
     yield* super.saga();
     yield takeEvery(duck.quickTypes.FETCH_ITEMS, function* () {
       const data = yield call(duck.actionCreators.fetchItemsFromApi);
