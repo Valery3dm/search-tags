@@ -5,7 +5,7 @@ const initialState = {
   itemsList: [],
   listOfThreeLastItems: [],
   inputItem: "",
-  searchedItem: [],
+  viewList: [],
   isLoaded: false
 };
 
@@ -17,7 +17,7 @@ class SingleDuck extends Duck {
       SET_FETCHED_ITEMS: "search-tags/reducer/SET_FETCHED_ITMS",
       SET_THREE_LAST_ITEMS: "search-tags/reducer/SET_THREE_LASTITEMS",
       SET_INPUT_ITEM: "search-tags/reducer/SET_INPUT_ITEM",
-      SET_SEARCHED_ITEMS: "search-tags/reducer/SET_SEARCHED_ELEMENTS",
+      SET_VIEW_LIST: "search-tags/reducer/SET_VIEW_LIST",
       SET_IS_LOADED: "search-tags/reducer/SET_IS_LOADED"
     };
   }
@@ -42,8 +42,8 @@ class SingleDuck extends Duck {
         type: this.quickTypes.SET_INPUT_ITEM,
         payload
       }),
-      setSearchedItemAction: payload => ({
-        type: this.quickTypes.SET_SEARCHED_ITEMS,
+      setViewList: payload=> ({
+        type: this.quickTypes.SET_VIEW_LIST,
         payload
       }),
       setIsLoaded: payload => ({
@@ -77,11 +77,11 @@ class SingleDuck extends Duck {
               ...state,
               inputItem: action.payload
             };
-          case this.quickTypes.SET_SEARCHED_ITEMS:
+          case this.quickTypes.SET_VIEW_LIST:
             return {
-              ...state,
-              searchedItem: action.payload
-            };
+                ...state,
+                viewList: action.payload
+              };
           case this.quickTypes.SET_IS_LOADED:
             return {
               ...state,
@@ -99,7 +99,7 @@ class SingleDuck extends Duck {
     yield takeEvery(duck.quickTypes.FETCH_ITEMS, function* () {
       const data = yield call(duck.actionCreators.fetchItemsFromApi);
       const json = yield call(() => new Promise(res => res(data.json())));
-      const newData = yield call(() => {
+      const allData = yield call(() => {
         const newList = json.hits.map(item => {
           return {
             id: item.id,
@@ -109,9 +109,11 @@ class SingleDuck extends Duck {
         });
         return newList;
       });
-      yield put(duck.actionCreators.setFetchedItemsAction(newData));
+      yield put(duck.actionCreators.setFetchedItemsAction(allData));
     });
   }
 }
 
-export const duck = new SingleDuck();
+const duck = new SingleDuck();
+
+export default duck;

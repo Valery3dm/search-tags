@@ -1,5 +1,10 @@
 import { Rotate } from '../styled';
 
-const PreLoader = () => <Rotate>&lt; 🌸 &gt;</Rotate>;
+const PreLoader = () => (
+    <div>
+        <Rotate>&lt; 🌸 &gt;</Rotate>
+        <div>Please enter TAG</div>
+    </div>
+);
 
 export default PreLoader;

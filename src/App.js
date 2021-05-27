@@ -6,25 +6,19 @@ import { SearchPanel } from './components';
 import { Cards } from './components';
 import { PreLoader } from './components';
 
-import { duck } from './store/ducks/widgets';
+import duck from './store/ducks/widgets';
 
 import { AppStyled } from './styled';
 
 const App = () => {
   const dispatch = useDispatch();
-  const itemsList = useSelector(state => state.itemsList);
+  const viewList = useSelector(state => state.viewList);
   const listOfThreeLastItems = useSelector(state => state.listOfThreeLastItems);
-  const searchedItem = useSelector(state => state.searchedItem);
   const isLoaded = useSelector(state => state.isLoaded);
 
   useEffect(() => {
-    const fetchItemsAction = () => dispatch(duck.actionCreators.fetchItemsAction());
-    const setIsLoaded = () => dispatch(duck.actionCreators.setIsLoaded(true));
-    fetchItemsAction();
-    setIsLoaded();
+    dispatch(duck.actionCreators.fetchItemsAction());
   }, [dispatch]);
-
-  const viewList = searchedItem.length !== 0 ? searchedItem : itemsList
 
   return (
     <AppStyled>
