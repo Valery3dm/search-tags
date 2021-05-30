@@ -26,7 +26,7 @@ const SearchPanel = () => {
     resolve (
       dispatch(duck.actionCreators.setThreeLastAction(inputItem))
     ) : resolve (
-      
+      inputItem
     )
   });
 
