@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const rotate = keyframes`
   from {
@@ -13,12 +13,8 @@ const rotate = keyframes`
 const Rotate = styled.div`
   display: inline-block;
   animation: ${rotate} 2s linear infinite;
-  padding: 2rem 1rem;
-  font-size: 1.2rem;
+  padding: 3rem 1rem;
+  font-size: 3rem;
 `;
 
-const PreLoader = () => {
-  return <Rotate>&lt; 🌸 &gt;</Rotate>;
-};
-
-export default PreLoader;
+export default Rotate;

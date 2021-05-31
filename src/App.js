@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import LastSearch from "./last-search/last-search";
-import SearchPanel from "./search-panel/search-panel";
-import Cards from "./cards/cards";
-import PreLoader from './pre-loader/pre-loader';
+import { LastSearch } from './components';
+import { SearchPanel } from './components';
+import { Cards } from './components';
+import { PreLoader } from './components';
 
-import "./App.css";
+import duck from './store/ducks/widgets';
+
+import { AppStyled } from './styled';
 
 const App = () => {
-  
-  const [state, setState] = useState([]);
+  const dispatch = useDispatch();
+  const viewList = useSelector(state => state.viewList);
+  const listOfThreeLastItems = useSelector(state => state.listOfThreeLastItems);
+  const isLoaded = useSelector(state => state.isLoaded);
 
   useEffect(() => {
-    fetch(
-      "https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=yellow+flowers&image_type=photo&pretty=true"
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setState(result.hits);
-      });
-  }, []);
+    dispatch(duck.actionCreators.fetchItemsAction());
+  }, [dispatch]);
 
   return (
-    <div className="app">
+    <AppStyled>
       <SearchPanel />
-      <LastSearch />
-      {state ? <Cards state={state} /> : <PreLoader/>}
-    </div>
+      <LastSearch listOfThreeLastItems={listOfThreeLastItems} />
+      {isLoaded ? (
+              <Cards viewList={viewList}/>
+      ) : (
+              <PreLoader />
+      )}
+    </AppStyled>
   );
 };
 
