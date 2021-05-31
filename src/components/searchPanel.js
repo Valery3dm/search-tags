@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import { actionCreators } from '../store/ducks/ngwidgets';
+import * as actionCreators from '../store/actionCreators/item';
 
 import { SearchPanelStyle } from '../styled';
 
@@ -24,7 +24,7 @@ const SearchPanel = () => {
   const setThreeLastAction = inputItem => new Promise(resolve => {
     inputItem !== "" ?
     resolve (
-      dispatch(actionCreators.setThreeLastAction(inputItem))
+      dispatch(setThreeLastAction(inputItem))
     ) : resolve (
       inputItem
     )

@@ -3,12 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import { sagaFetchItemsWatcher } from './saga/sagaFetchItems';
-import { reducer } from './ducks/ngwidgets';
+import { itemReducer } from './ducks/itemReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  reducer,
+  itemReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 

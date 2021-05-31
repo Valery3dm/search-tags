@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const rotate = keyframes`
+const rotate: any = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -10,7 +10,7 @@ const rotate = keyframes`
   }
 `;
 
-const Rotate = styled.div`
+const Rotate: string = styled.div`
   display: inline-block;
   animation: ${rotate} 2s linear infinite;
   padding: 3rem 1rem;

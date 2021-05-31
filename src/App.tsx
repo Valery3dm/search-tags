@@ -1,24 +1,22 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { LastSearch } from './components';
 import { SearchPanel } from './components';
 import { Cards } from './components';
 import { PreLoader } from './components';
-
-import { actionCreators } from './store/ducks/ngwidgets';
+import { useActions } from './hooks/useAction';
+import { useTypedSelector } from './hooks/useTypedSelector';
 
 import { AppStyled } from './styled';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const viewList = useSelector(state => state.viewList);
-  const listOfThreeLastItems = useSelector(state => state.listOfThreeLastItems);
-  const isLoaded = useSelector(state => state.isLoaded);
+  const { viewList, listOfThreeLastItems, isLoaded } = useTypedSelector(state => state.item);
+  const { fetchItemsAction } = useActions()
 
   useEffect(() => {
-    dispatch(actionCreators.fetchItemsAction());
-  }, [dispatch]);
+    fetchItemsAction();
+  }, [fetchItemsAction]);
+
 
   return (
     <AppStyled>
@@ -27,7 +25,7 @@ const App = () => {
       {isLoaded ? (
               <Cards viewList={viewList}/>
       ) : (
-              <PreLoader />
+              <PreLoader/>
       )}
     </AppStyled>
   );

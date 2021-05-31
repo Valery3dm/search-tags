@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { actionCreators } from '../store/ducks/ngwidgets';
+import * as actionCreators from '../store/actionCreators/item';
 
 import { LastItemSearch, ButtonStyled, LastThreeItemSearch } from '../styled';
 
