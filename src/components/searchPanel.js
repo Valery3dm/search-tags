@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import duck from '../store/ducks/widgets';
+import { actionCreators } from '../store/ducks/ngwidgets';
 
 import { SearchPanelStyle } from '../styled';
 
@@ -17,14 +17,14 @@ const SearchPanel = () => {
 
   const fetchItemsAction = () => new Promise(resolve => {
     resolve (
-      dispatch(duck.actionCreators.fetchItemsAction())
+      dispatch(actionCreators.fetchItemsAction())
     )
   });
 
   const setThreeLastAction = inputItem => new Promise(resolve => {
     inputItem !== "" ?
     resolve (
-      dispatch(duck.actionCreators.setThreeLastAction(inputItem))
+      dispatch(actionCreators.setThreeLastAction(inputItem))
     ) : resolve (
       inputItem
     )
@@ -33,9 +33,9 @@ const SearchPanel = () => {
   const setIsLoaded = (inputItem) => new Promise(resolve => {
     inputItem !== "" ?
       resolve (
-        dispatch(duck.actionCreators.setIsLoaded(true))
+        dispatch(actionCreators.setIsLoaded(true))
       ) : resolve (
-        dispatch(duck.actionCreators.setIsLoaded(false))
+        dispatch(actionCreators.setIsLoaded(false))
       )
   });
 
@@ -46,13 +46,13 @@ const SearchPanel = () => {
 
     return new Promise(resolve => {
       resolve (
-        dispatch(duck.actionCreators.setViewList(filteredList))
+        dispatch(actionCreators.setViewList(filteredList))
       )
     })
   };
 
   const handleOnChangeInputItemAction = inputItem => dispatch(
-    duck.actionCreators.setInputItemAction(inputItem)
+    actionCreators.setInputItemAction(inputItem)
   );
 
   const handleSetTags = async inputItem => {

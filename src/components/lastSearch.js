@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import duck from '../store/ducks/widgets';
+import { actionCreators } from '../store/ducks/ngwidgets';
 
 import { LastItemSearch, ButtonStyled, LastThreeItemSearch } from '../styled';
 
@@ -13,7 +13,7 @@ const LastSearch = ({ listOfThreeLastItems }) => {
 
   const setInputItemAction = item => new Promise(resolve =>
     resolve (
-      dispatch(duck.actionCreators.setInputItemAction(item))
+      dispatch(actionCreators.setInputItemAction(item))
     )
   )
 
@@ -23,14 +23,14 @@ const LastSearch = ({ listOfThreeLastItems }) => {
     )
     return new Promise(resolve => {
       resolve (
-        dispatch(duck.actionCreators.setViewList(filteredList))
+        dispatch(actionCreators.setViewList(filteredList))
       )
     })
   }
 
   const setIsLoaded = () => new Promise(resolve => {
       resolve (
-        dispatch(duck.actionCreators.setIsLoaded(true))
+        dispatch(actionCreators.setIsLoaded(true))
       ) 
   });
   

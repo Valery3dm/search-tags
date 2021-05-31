@@ -6,7 +6,7 @@ import { SearchPanel } from './components';
 import { Cards } from './components';
 import { PreLoader } from './components';
 
-import duck from './store/ducks/widgets';
+import { actionCreators } from './store/ducks/ngwidgets';
 
 import { AppStyled } from './styled';
 
@@ -17,7 +17,7 @@ const App = () => {
   const isLoaded = useSelector(state => state.isLoaded);
 
   useEffect(() => {
-    dispatch(duck.actionCreators.fetchItemsAction());
+    dispatch(actionCreators.fetchItemsAction());
   }, [dispatch]);
 
   return (

@@ -1,4 +1,4 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+/* import { put, takeEvery, call } from 'redux-saga/effects';
 import { Duck } from 'saga-duck';
 
 const initialState = {
@@ -117,3 +117,4 @@ class SingleDuck extends Duck {
 const duck = new SingleDuck();
 
 export default duck;
+ */
