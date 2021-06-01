@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 
-const ButtonStyled: string = styled(Button)`
+const ButtonStyled: any = styled(Button)`
   margin: 10px 4px 0px 4px;
   box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 `;
 
-const LastItemSearch: string = styled.div`
+const LastItemSearch: any = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ const LastItemSearch: string = styled.div`
   margin: 0px 10px 0px 10px;
 `;
 
-const LastThreeItemSearch: string = styled.ul`
+const LastThreeItemSearch: any = styled.ul`
   display: flex;
   list-style-type: none;
   padding-left: 0px;

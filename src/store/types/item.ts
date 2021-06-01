@@ -1,5 +1,5 @@
 export interface ItemsState {
-    itemsList: any[];
+    itemsList: object[];
     listOfThreeLastItems: any[];
     inputItem: string;
     viewList: any[];
@@ -21,7 +21,7 @@ interface FetchItemsAction {
 
 interface SetFetchedItemsAction {
     type: ItemActionType.SET_FETCHED_ITEMS;
-    payload: any[];
+    payload: object[];
 }
 
 interface SetThreeLastAction {

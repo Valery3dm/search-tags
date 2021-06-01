@@ -10,7 +10,7 @@ const rotate: any = keyframes`
   }
 `;
 
-const Rotate: string = styled.div`
+const Rotate: any = styled.div`
   display: inline-block;
   animation: ${rotate} 2s linear infinite;
   padding: 3rem 1rem;

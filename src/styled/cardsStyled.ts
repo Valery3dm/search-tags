@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 
-const ListCards: string = styled.ul`
+const ListCards: any = styled.ul`
   margin-top: 4rem;
   display: flex;
   flex-wrap: wrap;
@@ -10,14 +10,14 @@ const ListCards: string = styled.ul`
   padding: 0;
 `;
 
-const CardStyled: string = styled(Card)`
+const CardStyled: any = styled(Card)`
   width: 18rem;
   margin: 5px;
   height: 18rem;
   box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 `;
 
-const CardImgStyled: string = styled(Card.Img)`
+const CardImgStyled: any = styled(Card.Img)`
   height: 12rem;
   object-fit: cover;
 `;

@@ -14,23 +14,23 @@ const  fetchItemsAction = () => {
 
 const setFetchedItemsAction = (payload: ItemAction) => ({
     type: ItemActionType.SET_FETCHED_ITEMS,
-    payload,
+    payload
   });
 const setThreeLastAction = (payload: ItemAction) => ({
     type: ItemActionType.SET_THREE_LAST_ITEMS,
-    payload,
+    payload
   });
 const setInputItemAction = (payload: ItemAction) => ({
     type: ItemActionType.SET_INPUT_ITEM,
-    payload,
+    payload
   });
 const setViewList = (payload: ItemAction) => ({
     type: ItemActionType.SET_VIEW_LIST,
-    payload,
+    payload
   });
 const setIsLoaded = (payload: ItemAction) => ({
     type: ItemActionType.SET_IS_LOADED,
-    payload,
+    payload
   });
 
 export {

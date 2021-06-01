@@ -6,17 +6,17 @@ import { Cards } from './components';
 import { PreLoader } from './components';
 import { useActions } from './hooks/useAction';
 import { useTypedSelector } from './hooks/useTypedSelector';
+import { RootState } from './store/ducks';
 
 import { AppStyled } from './styled';
 
-const App = () => {
-  const { viewList, listOfThreeLastItems, isLoaded } = useTypedSelector(state => state.item);
-  const { fetchItemsAction } = useActions()
+const App: React.FC = () => {
+  const { viewList, listOfThreeLastItems, isLoaded } = useTypedSelector((state: RootState) => state.item);
+  const { fetchItemsAction } = useActions();
 
   useEffect(() => {
     fetchItemsAction();
   }, [fetchItemsAction]);
-
 
   return (
     <AppStyled>
