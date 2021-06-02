@@ -39,9 +39,7 @@ const LastSearch: React.FC<Props> = ({ listOfThreeLastItems }) => {
     })
   
   }
-  
-  
-  
+
   const handleSetTags = async (item: string)=> {
     return (
       await onSetViewList(item),

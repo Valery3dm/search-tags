@@ -16,7 +16,7 @@ const SearchPanel: React.FC = () => {
           fetchItemsAction,
           setThreeLastAction,
           setInputItemAction } = useActions();
-  const { itemsList, inputItem } = useSelector((state: ItemsState) => state)
+  const { itemsList, inputItem } = useSelector((state: ItemsState) => state);
 
   const onFetchItemsAction = () => new Promise(resolve => {
     resolve (

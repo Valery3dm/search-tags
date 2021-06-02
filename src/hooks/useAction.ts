@@ -4,5 +4,5 @@ import duck from '../store/ducks/widgetsNG';
 
 export const useActions = () => {
     const dispatch = useDispatch();
-    return bindActionCreators(duck.actionCreators , dispatch);
+    return bindActionCreators(duck.actionCreators, dispatch);
 }

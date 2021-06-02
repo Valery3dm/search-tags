@@ -1,5 +1,5 @@
-import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
 import { Duck } from 'saga-duck';
+import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
 import { ItemAction, ItemActionType, ItemsState, FechedDataView } from '../types/item';
 
 const initialState = {
@@ -14,9 +14,8 @@ const APIURL =
     "https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=yellow+flowers&image_type=photo&pretty=true";
 
 class SingleDuck extends Duck {
-
-    get actionCreators() {
-        return {
+  get actionCreators() {
+    return {
             fetchItemsAction: () => ({
                 type: ItemActionType.FETCH_ITEMS
             }),
