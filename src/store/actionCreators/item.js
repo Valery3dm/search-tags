@@ -1,4 +1,4 @@
-import { ItemAction, ItemActionType } from '../types/item';
+/* import { ItemAction, ItemActionType } from '../types/item';
 
 
 const  fetchItemsAction = () => ({
@@ -34,3 +34,4 @@ export {
   setViewList,
   setIsLoaded
 }
+ */

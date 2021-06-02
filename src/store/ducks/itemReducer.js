@@ -1,4 +1,4 @@
-import { ItemsState, ItemActionType, ItemAction } from '../types/item';
+/* import { ItemsState, ItemActionType, ItemAction } from '../types/item';
 
 const initialState: ItemsState = {
   itemsList: [],
@@ -41,4 +41,4 @@ export const itemReducer = (state: ItemsState = initialState, action: ItemAction
       default:
         return state;
     }
-  };
+  }; */

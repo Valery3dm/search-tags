@@ -15,6 +15,12 @@ export enum ItemActionType {
     SET_IS_LOADED = "search-tags/reducer/SET_IS_LOADED"
 }
 
+export interface FechedDataView {
+    total: number;
+    totalHits: number;
+    hits: ItemAction;
+  }
+
 interface FetchItemsAction {
     type: ItemActionType.FETCH_ITEMS;
 }

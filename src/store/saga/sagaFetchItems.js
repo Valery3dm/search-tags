@@ -1,4 +1,4 @@
-import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
+/* import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
 import { setFetchedItemsAction } from '../actionCreators/item';
 import { ItemActionType, ItemAction } from '../types/item';
 
@@ -20,3 +20,4 @@ function* sagaFetchItemsWorker() {
 export function* sagaFetchItemsWatcher(): Generator<StrictEffect> {
   yield takeEvery(ItemActionType.FETCH_ITEMS, sagaFetchItemsWorker)
 }
+ */
