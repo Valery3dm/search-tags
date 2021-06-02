@@ -1,16 +1,9 @@
-import { Dispatch } from 'redux';
 import { ItemAction, ItemActionType } from '../types/item';
 
 
-const  fetchItemsAction = () => {
-  return async (dispatch: Dispatch<ItemAction>) => {
-    try {
-      dispatch({type: ItemActionType.FETCH_ITEMS})
-    } catch (e) {
-      console.error(e)
-    }
-  }
-}
+const  fetchItemsAction = () => ({
+  type: ItemActionType.FETCH_ITEMS
+})
 
 const setFetchedItemsAction = (payload: ItemAction) => ({
     type: ItemActionType.SET_FETCHED_ITEMS,

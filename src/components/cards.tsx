@@ -4,7 +4,11 @@ import Card from 'react-bootstrap/Card';
 
 import { ListCards, CardStyled, CardImgStyled } from '../styled';
 
-const Cards = ({ viewList }) => (
+interface Props {
+  viewList: any[];
+}
+
+const Cards: React.FC<Props> = ({ viewList }) => (
   <ListCards>
     {viewList.map(item => (
       <li key={item.id}>
