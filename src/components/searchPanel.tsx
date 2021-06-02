@@ -1,63 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import { SearchPanelStyle } from '../styled';
-import { RootState } from '../store/ducks';
 import { ItemsState } from '../store/types/item';
 import { useActions } from '../hooks/useAction';
-import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const SearchPanel: React.FC = () => {
-  const dispatch = useDispatch();
-  const state = useTypedSelector<ItemsState>((state: RootState) => state.item);
-  const { setViewList, setIsLoaded, setInputItemAction, fetchItemsAction, setThreeLastAction } = useActions();
+  const { setIsLoaded,
+          setViewList,
+          fetchItemsAction,
+          setThreeLastAction,
+          setInputItemAction } = useActions();
+  const { itemsList, inputItem } = useSelector((state: ItemsState) => state)
 
   const onFetchItemsAction = () => new Promise(resolve => {
     resolve (
-      dispatch(fetchItemsAction())
+      fetchItemsAction()
     )
   });
 
-  const onSetThreeLastAction = (inputItem: any) => new Promise(resolve => {
+  const onSetThreeLastAction = (inputItem: string) => new Promise(resolve => {
     inputItem !== "" ?
     resolve (
-      dispatch(setThreeLastAction(inputItem))
+      setThreeLastAction(inputItem)
     ) : resolve (
       inputItem
     )
   });
 
-  const onSetIsLoaded = (inputItem: any) => new Promise(resolve => {
-    const valueOfLoadSuccess: any = true;
-    const valueOfLoadFail: any = false;
+  const onSetIsLoaded = (inputItem: string) => new Promise(resolve => {
     inputItem !== "" ?
       resolve (
-        dispatch(setIsLoaded(valueOfLoadSuccess))
+        setIsLoaded(true)
       ) : resolve (
-        dispatch(setIsLoaded(valueOfLoadFail))
+        setIsLoaded(false)
       )
   });
 
   const onSetViewList = () => {
-    const filteredList: any = state.itemsList.filter(
-      (item: any) => item.tags.toLowerCase().includes(state?.inputItem.toLowerCase()) === true
+    const filteredList: object[] = itemsList.filter(
+      (item: any) => item.tags.toLowerCase().includes(inputItem.toLowerCase()) === true
     );
 
     return new Promise(resolve => {
       resolve (
-        dispatch(setViewList(filteredList))
+        setViewList(filteredList)
       )
     })
   };
 
-  const handleOnChangeInputItemAction = (inputItem: any) => dispatch(
-    setInputItemAction(inputItem)
-  );
+  const handleOnChangeInputItemAction = (inputItem: string) => setInputItemAction(inputItem)
 
   const handleSetTags = async (inputItem: string) => {
     await onFetchItemsAction();
@@ -73,13 +70,13 @@ const SearchPanel: React.FC = () => {
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         onChange={e => handleOnChangeInputItemAction(e.target.value)}
-        value={state?.inputItem}
+        value={inputItem}
       />
       <InputGroup.Append>
-        <Link to={`/${state?.inputItem}`}>
+        <Link to={`/${inputItem}`}>
             <Button
               variant="outline-secondary"
-              onClick={() => handleSetTags(state?.inputItem)}>
+              onClick={() => handleSetTags(inputItem)}>
                 Search
             </Button>
           </Link>

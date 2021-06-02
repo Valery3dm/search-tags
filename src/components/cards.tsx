@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Card from 'react-bootstrap/Card';
-
 import { ListCards, CardStyled, CardImgStyled } from '../styled';
+
+import Card from 'react-bootstrap/Card';
 
 interface Props {
   viewList: any[];

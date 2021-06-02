@@ -8,7 +8,7 @@ const initialState: ItemsState = {
   isLoaded: false
 };
 
-export const itemReducer = (state = initialState, action: ItemAction): ItemsState => {
+export const itemReducer = (state: ItemsState = initialState, action: ItemAction) => {
     switch (action.type) {
       case ItemActionType.SET_FETCHED_ITEMS:
         return {

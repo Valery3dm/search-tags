@@ -13,7 +13,7 @@ const APIURL =
 
 function* sagaFetchItemsWorker() {
     const allData: FechedDataView = yield call(() => fetch(APIURL).then(res => res.json()));
-    const arrData: ItemAction =  yield call(() => allData.hits);
+    const arrData: any[] =  yield call(() => allData.hits);
     yield put(setFetchedItemsAction(arrData));
 }
 
