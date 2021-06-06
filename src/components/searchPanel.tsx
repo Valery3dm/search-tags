@@ -11,7 +11,7 @@ import { ItemsState } from '../store/types/item';
 import { useActions } from '../hooks/useAction';
 
 const SearchPanel: React.FC = () => {
-  const { 
+  const {
     setIsLoaded,
     fetchItemsAction,
     setThreeLastAction,
@@ -40,7 +40,7 @@ const SearchPanel: React.FC = () => {
       )
   });
 
-  const handleOnChangeInputItemAction = (inputItem: string) => setInputItemAction(inputItem)
+  const handleOnChangeInputItemAction = (inputItem: string) => setInputItemAction(inputItem);
 
   const handleSetTags = async (inputItem: string) => {
     await onFetchItemsAction();

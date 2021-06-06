@@ -1,5 +1,6 @@
-import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
+import { put, takeEvery, call, StrictEffect, select } from 'redux-saga/effects';
 import { ItemAction, ItemActionType, ItemsState, FechedDataView } from '../types/item';
+import fetchApi from '../../api';
 
 const initialState = {
     itemsList: [],
@@ -8,12 +9,10 @@ const initialState = {
     isLoaded: false
 };
 
-const APIURL =
-    `https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=&image_type=photo&pretty=true`;
-
 const SingleDuck = () => {
-  const actionCreators = () => {
-    return {
+
+    const actionCreators = () => {
+        return {
             fetchItemsAction: () => ({
                 type: ItemActionType.FETCH_ITEMS
             }),
@@ -71,7 +70,8 @@ const SingleDuck = () => {
     };
 
     function* sagaFetchItemsWorker() {
-        const allData: FechedDataView = yield call(() => fetch(APIURL).then(res => res.json()));
+        const state: ItemsState = yield select();
+        const allData: FechedDataView = yield call(() => fetchApi(state));
         const arrData: any[] = yield call(() => allData.hits);
         yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
     };
@@ -81,11 +81,11 @@ const SingleDuck = () => {
     };
 
     return {
-        actionCreators,
         reducers,
+        actionCreators,
         sagaFetchItemsWatcher,
         sagaFetchItemsWorker
-    }
+    };
 }
 
 export default SingleDuck;
