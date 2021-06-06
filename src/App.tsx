@@ -17,6 +17,7 @@ const App: React.FC = () => {
   return (
     <AppStyled>
       <SearchPanel />
+      <div className=".app"></div>
       <LastSearch listOfThreeLastItems={listOfThreeLastItems} />
       {isLoaded ? (
         <Cards itemsList={itemsList}/>
