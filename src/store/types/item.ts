@@ -2,17 +2,16 @@ export interface ItemsState {
     itemsList: object[];
     listOfThreeLastItems: any[];
     inputItem: string;
-    viewList: any[];
     isLoaded: boolean;
 }
 
 export enum ItemActionType {
-    FETCH_ITEMS = "search-tags/reducer/FETCH_ITEMS",
-    SET_FETCHED_ITEMS = "search-tags/reducer/SET_FETCHED_ITEMS",
-    SET_THREE_LAST_ITEMS = "search-tags/reducer/SET_THREE_LASTITEMS",
-    SET_INPUT_ITEM = "search-tags/reducer/SET_INPUT_ITEM",
-    SET_VIEW_LIST = "search-tags/reducer/SET_VIEW_LIST",
-    SET_IS_LOADED = "search-tags/reducer/SET_IS_LOADED"
+    FETCH_ITEMS = 'search-tags/reducer/FETCH_ITEMS',
+    SET_FETCHED_ITEMS = 'search-tags/reducer/SET_FETCHED_ITEMS',
+    SET_THREE_LAST_ITEMS = 'search-tags/reducer/SET_THREE_LASTITEMS',
+    SET_INPUT_ITEM = 'search-tags/reducer/SET_INPUT_ITEM',
+    SET_VIEW_LIST = 'search-tags/reducer/SET_VIEW_LIST',
+    SET_IS_LOADED = 'search-tags/reducer/SET_IS_LOADED'
 }
 
 export interface FechedDataView {
@@ -25,7 +24,7 @@ interface FetchItemsAction {
     type: ItemActionType.FETCH_ITEMS;
 }
 
-interface SetFetchedItemsAction {
+interface SetFetchedItemsListAction {
     type: ItemActionType.SET_FETCHED_ITEMS;
     payload: object[];
 }
@@ -40,11 +39,6 @@ interface SetInputItemAction {
     payload: string;
 }
 
-interface SetViewList {
-    type: ItemActionType.SET_VIEW_LIST;
-    payload: any[];
-}
-
 interface SetIsLoaded {
     type: ItemActionType.SET_IS_LOADED;
     payload: boolean;
@@ -52,8 +46,7 @@ interface SetIsLoaded {
 
 export type ItemAction =
     FetchItemsAction
-    | SetFetchedItemsAction
+    | SetFetchedItemsListAction
     | SetThreeLastAction
     | SetInputItemAction
-    | SetViewList
     | SetIsLoaded

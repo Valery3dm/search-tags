@@ -8,4 +8,4 @@ export {
     PreLoader,
     LastSearch,
     Cards
-}
+};

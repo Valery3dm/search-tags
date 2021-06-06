@@ -1,25 +1,23 @@
-import { Duck } from 'saga-duck';
 import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
 import { ItemAction, ItemActionType, ItemsState, FechedDataView } from '../types/item';
 
 const initialState = {
     itemsList: [],
     listOfThreeLastItems: [],
-    inputItem: "",
-    viewList: [],
+    inputItem: '',
     isLoaded: false
 };
 
 const APIURL =
-    "https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=yellow+flowers&image_type=photo&pretty=true";
+    `https://pixabay.com/api/?key=21652349-10296171d71009a10a9cdc544&q=&image_type=photo&pretty=true`;
 
-class SingleDuck extends Duck {
-  get actionCreators() {
+const SingleDuck = () => {
+  const actionCreators = () => {
     return {
             fetchItemsAction: () => ({
                 type: ItemActionType.FETCH_ITEMS
             }),
-            setFetchedItemsAction: (payload: object[]): ItemAction => ({
+            setFetchedItemsListAction: (payload: object[]): ItemAction => ({
                 type: ItemActionType.SET_FETCHED_ITEMS,
                 payload
             }),
@@ -31,18 +29,14 @@ class SingleDuck extends Duck {
                 type: ItemActionType.SET_INPUT_ITEM,
                 payload
             }),
-            setViewList: (payload: any[]): ItemAction => ({
-                type: ItemActionType.SET_VIEW_LIST,
-                payload
-            }),
             setIsLoaded: (payload: boolean): ItemAction => ({
                 type: ItemActionType.SET_IS_LOADED,
                 payload
             })
         }
-    }
+    };
 
-    get reducers() {
+    const reducers = () => {
         return {
             reducer: (state: ItemsState = initialState, action: ItemAction) => {
                 switch (action.type) {
@@ -64,11 +58,6 @@ class SingleDuck extends Duck {
                             ...state,
                             inputItem: action.payload
                         };
-                    case ItemActionType.SET_VIEW_LIST:
-                        return {
-                            ...state,
-                            viewList: action.payload
-                        };
                     case ItemActionType.SET_IS_LOADED:
                         return {
                             ...state,
@@ -79,19 +68,24 @@ class SingleDuck extends Duck {
                 }
             }
         }
-    }
+    };
 
-    *sagaFetchItemsWorker() {
+    function* sagaFetchItemsWorker() {
         const allData: FechedDataView = yield call(() => fetch(APIURL).then(res => res.json()));
         const arrData: any[] = yield call(() => allData.hits);
-        yield put(duck.actionCreators.setFetchedItemsAction(arrData));
-    }
+        yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
+    };
 
-    *sagaFetchItemsWatcher(): Generator<StrictEffect> {
-        yield takeEvery(ItemActionType.FETCH_ITEMS, duck.sagaFetchItemsWorker)
+    function* sagaFetchItemsWatcher(): Generator<StrictEffect> {
+        yield takeEvery(ItemActionType.FETCH_ITEMS, SingleDuck().sagaFetchItemsWorker)
+    };
+
+    return {
+        actionCreators,
+        reducers,
+        sagaFetchItemsWatcher,
+        sagaFetchItemsWorker
     }
 }
 
-const duck = new SingleDuck();
-
-export default duck;
+export default SingleDuck;

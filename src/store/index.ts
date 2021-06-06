@@ -2,15 +2,15 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import duck from './ducks/widgetsNG';
+import SingleDuck from './ducks/widgetsNG';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  duck.reducers.reducer,
+  SingleDuck().reducers().reducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
 export default store;
 
-sagaMiddleware.run(duck.sagaFetchItemsWatcher);
+sagaMiddleware.run(SingleDuck().sagaFetchItemsWatcher);

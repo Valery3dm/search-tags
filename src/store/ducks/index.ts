@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import duck from '../ducks/widgetsNG';
+import SingleDuck from '../ducks/widgetsNG';
 
 export const rootReducer = combineReducers({
-    item: duck.reducers.reducer
-})
+    item: SingleDuck().reducers().reducer
+});
 
 export type RootState = ReturnType<typeof rootReducer>

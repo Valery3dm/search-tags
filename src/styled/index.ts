@@ -14,4 +14,4 @@ export {
     LastThreeItemSearch,
     Rotate,
     SearchPanelStyle
-}
+};

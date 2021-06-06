@@ -11,21 +11,19 @@ import { ItemsState } from '../store/types/item';
 import { useActions } from '../hooks/useAction';
 
 const SearchPanel: React.FC = () => {
-  const { setIsLoaded,
-          setViewList,
-          fetchItemsAction,
-          setThreeLastAction,
-          setInputItemAction } = useActions();
-  const { itemsList, inputItem } = useSelector((state: ItemsState) => state);
+  const { 
+    setIsLoaded,
+    fetchItemsAction,
+    setThreeLastAction,
+    setInputItemAction
+  } = useActions();
 
-  const onFetchItemsAction = () => new Promise(resolve => {
-    resolve (
-      fetchItemsAction()
-    )
-  });
+  const { inputItem } = useSelector((state: ItemsState) => state);
+
+  const onFetchItemsAction = () => new Promise(resolve => resolve(fetchItemsAction()));
 
   const onSetThreeLastAction = (inputItem: string) => new Promise(resolve => {
-    inputItem !== "" ?
+    inputItem !== '' ?
     resolve (
       setThreeLastAction(inputItem)
     ) : resolve (
@@ -34,7 +32,7 @@ const SearchPanel: React.FC = () => {
   });
 
   const onSetIsLoaded = (inputItem: string) => new Promise(resolve => {
-    inputItem !== "" ?
+    inputItem !== '' ?
       resolve (
         setIsLoaded(true)
       ) : resolve (
@@ -42,25 +40,12 @@ const SearchPanel: React.FC = () => {
       )
   });
 
-  const onSetViewList = () => {
-    const filteredList: object[] = itemsList.filter(
-      (item: any) => item.tags.toLowerCase().includes(inputItem.toLowerCase()) === true
-    );
-
-    return new Promise(resolve => {
-      resolve (
-        setViewList(filteredList)
-      )
-    })
-  };
-
   const handleOnChangeInputItemAction = (inputItem: string) => setInputItemAction(inputItem)
 
   const handleSetTags = async (inputItem: string) => {
     await onFetchItemsAction();
     await onSetThreeLastAction(inputItem);
     await onSetIsLoaded(inputItem);
-    await onSetViewList();
   };
 
   return (
