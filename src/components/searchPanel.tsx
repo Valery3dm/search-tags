@@ -55,11 +55,12 @@ const SearchPanel: React.FC = () => {
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         onChange={e => handleOnChangeInputItemAction(e.target.value)}
+        onKeyPress={(e: any) => e.key === 'Enter' && handleSetTags(inputItem)}
         value={inputItem}
       />
       <InputGroup.Append>
         <Link to={`/${inputItem}`}>
-            <Button
+            <Button 
               variant="outline-secondary"
               onClick={() => handleSetTags(inputItem)}>
                 Search
