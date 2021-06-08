@@ -32,12 +32,4 @@ describe('Cards component', () => {
         expect(toJson(component)).toMatchSnapshot();
     });
     
-    /* it('Cards us to set props', () => {
-        const component = shallow(
-            <Provider store={store}>
-                <Cards itemsList={[]}/>
-            </Provider>
-        );
-        expect(component.props().itemsList).toBe([]);
-    }); */
 });

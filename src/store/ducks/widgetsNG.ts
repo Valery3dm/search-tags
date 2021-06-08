@@ -6,6 +6,7 @@ const initialState = {
     itemsList: [],
     listOfThreeLastItems: [],
     inputItem: '',
+    page: 1,
     isLoaded: false
 };
 
@@ -28,6 +29,10 @@ const SingleDuck = () => {
                 type: ItemActionType.SET_INPUT_ITEM,
                 payload
             }),
+            setPage: (payload: number) => ({
+                type: ItemActionType.SET_PAGE,
+                payload
+            }),
             setIsLoaded: (payload: boolean): ItemAction => ({
                 type: ItemActionType.SET_IS_LOADED,
                 payload
@@ -42,7 +47,10 @@ const SingleDuck = () => {
                     case ItemActionType.SET_FETCHED_ITEMS:
                         return {
                             ...state,
-                            itemsList: action.payload
+                            itemsList: [
+                                ...state.itemsList,
+                                ...action.payload
+                            ]
                         };
                     case ItemActionType.SET_THREE_LAST_ITEMS:
                         return {
@@ -56,6 +64,11 @@ const SingleDuck = () => {
                         return {
                             ...state,
                             inputItem: action.payload
+                        };
+                    case ItemActionType.SET_PAGE:
+                        return {
+                            ...state,
+                            page: action.payload
                         };
                     case ItemActionType.SET_IS_LOADED:
                         return {
@@ -72,8 +85,10 @@ const SingleDuck = () => {
     function* sagaFetchItemsWorker() {
         const state: ItemsState = yield select();
         const allData: FechedDataView = yield call(() => fetchApi(state));
-        const arrData: any[] = yield call(() => allData.hits);
-        yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
+        const arrData: object[] = yield call(() => allData.hits);
+
+            yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
+
     };
 
     function* sagaFetchItemsWatcher(): Generator<StrictEffect> {

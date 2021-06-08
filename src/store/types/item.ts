@@ -2,6 +2,7 @@ export interface ItemsState {
     itemsList: object[];
     listOfThreeLastItems: any[];
     inputItem: string;
+    page: number;
     isLoaded: boolean;
 }
 
@@ -10,13 +11,14 @@ export enum ItemActionType {
     SET_FETCHED_ITEMS = 'search-tags/reducer/SET_FETCHED_ITEMS',
     SET_THREE_LAST_ITEMS = 'search-tags/reducer/SET_THREE_LASTITEMS',
     SET_INPUT_ITEM = 'search-tags/reducer/SET_INPUT_ITEM',
+    SET_PAGE = 'search-tags/reducer/SET_PAGE',
     SET_IS_LOADED = 'search-tags/reducer/SET_IS_LOADED'
 }
 
 export interface FechedDataView {
     total: number;
     totalHits: number;
-    hits: ItemAction;
+    hits: object[];
   }
 
 interface FetchItemsAction {
@@ -38,6 +40,11 @@ interface SetInputItemAction {
     payload: string;
 }
 
+interface setPage {
+    type: ItemActionType.SET_PAGE;
+    payload: number;
+}
+
 interface SetIsLoaded {
     type: ItemActionType.SET_IS_LOADED;
     payload: boolean;
@@ -48,4 +55,5 @@ export type ItemAction =
     | SetFetchedItemsListAction
     | SetThreeLastAction
     | SetInputItemAction
+    | setPage
     | SetIsLoaded

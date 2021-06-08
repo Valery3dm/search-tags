@@ -1,35 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search-Panel component SearchPanel Snapshot component: 1`] = `
-<ContextProvider
-  value={
+<Provider
+  store={
     Object {
-      "store": Object {
-        "@@observable": [Function],
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Subscription {
-        "handleChangeWrapper": [Function],
-        "listeners": Object {
-          "notify": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "@@observable": [Function],
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": null,
-      },
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <SearchPanel />
-</ContextProvider>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <SearchPanel>
+        <Styled(Component)>
+          <ForwardRef(InputGroup)
+            className="sc-fujyAs kTYqnT"
+          >
+            <div
+              className="sc-fujyAs kTYqnT input-group"
+            >
+              <FormControl
+                aria-describedby="basic-addon2"
+                aria-label="Recipient's username"
+                onChange={[Function]}
+                onKeyPress={[Function]}
+                placeholder="type your tag here"
+                value=""
+              >
+                <input
+                  aria-describedby="basic-addon2"
+                  aria-label="Recipient's username"
+                  className="form-control"
+                  onChange={[Function]}
+                  onKeyPress={[Function]}
+                  placeholder="type your tag here"
+                  value=""
+                />
+              </FormControl>
+              <InputGroupAppend>
+                <div
+                  className="input-group-append"
+                >
+                  <Link
+                    to="/"
+                  >
+                    <LinkAnchor
+                      href="/"
+                      navigate={[Function]}
+                    >
+                      <a
+                        href="/"
+                        onClick={[Function]}
+                      >
+                        <Button
+                          active={false}
+                          disabled={false}
+                          onClick={[Function]}
+                          variant="outline-secondary"
+                        >
+                          <button
+                            className="btn btn-outline-secondary"
+                            disabled={false}
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Search
+                          </button>
+                        </Button>
+                      </a>
+                    </LinkAnchor>
+                  </Link>
+                </div>
+              </InputGroupAppend>
+            </div>
+          </ForwardRef(InputGroup)>
+        </Styled(Component)>
+      </SearchPanel>
+    </Router>
+  </BrowserRouter>
+</Provider>
 `;
