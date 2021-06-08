@@ -10,7 +10,6 @@ export enum ItemActionType {
     SET_FETCHED_ITEMS = 'search-tags/reducer/SET_FETCHED_ITEMS',
     SET_THREE_LAST_ITEMS = 'search-tags/reducer/SET_THREE_LASTITEMS',
     SET_INPUT_ITEM = 'search-tags/reducer/SET_INPUT_ITEM',
-    SET_VIEW_LIST = 'search-tags/reducer/SET_VIEW_LIST',
     SET_IS_LOADED = 'search-tags/reducer/SET_IS_LOADED'
 }
 

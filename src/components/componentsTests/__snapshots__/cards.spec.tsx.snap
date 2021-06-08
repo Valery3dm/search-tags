@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards component Cards Snapshot component 1`] = `
+<styled.ul>
+  <li
+    key="1"
+  >
+    <Styled(Card)>
+      <Styled(CardImg)
+        src="qweasdzxc123"
+        variant="top"
+      />
+      <CardBody>
+        <CardTitle>
+          item1
+        </CardTitle>
+      </CardBody>
+    </Styled(Card)>
+  </li>
+  <li
+    key="2"
+  >
+    <Styled(Card)>
+      <Styled(CardImg)
+        src="asdzxc123"
+        variant="top"
+      />
+      <CardBody>
+        <CardTitle>
+          item2
+        </CardTitle>
+      </CardBody>
+    </Styled(Card)>
+  </li>
+  <li
+    key="3"
+  >
+    <Styled(Card)>
+      <Styled(CardImg)
+        src="zxc123"
+        variant="top"
+      />
+      <CardBody>
+        <CardTitle>
+          item3
+        </CardTitle>
+      </CardBody>
+    </Styled(Card)>
+  </li>
+</styled.ul>
+`;

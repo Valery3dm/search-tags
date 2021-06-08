@@ -47,7 +47,7 @@ const LastSearch: React.FC<Props> = ({ listOfThreeLastItems }) => {
 
   return (
     <LastItemSearch>
-      <div>Last search:</div>
+      
       <div>
         <LastThreeItemSearch>{viewTags}</LastThreeItemSearch>
       </div>

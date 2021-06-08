@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`components component Cards Snapshot component 1`] = `ShallowWrapper {}`;
-
-exports[`components component LastSearch Snapshot component 1`] = `ShallowWrapper {}`;
-
-exports[`components component PreLoader Snapshot component 1`] = `ShallowWrapper {}`;
-
-exports[`components component SearchPanel Snapshot component 1`] = `ShallowWrapper {}`;
