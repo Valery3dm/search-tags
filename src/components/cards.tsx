@@ -8,18 +8,18 @@ interface Props {
 }
 
 const Cards: React.FC<Props> = ({ itemsList }) => (
-  <ListCards>
-    {itemsList.map(item => (
-      <li key={item.id}>
-        <CardStyled>
-          <CardImgStyled variant="top" src={item.largeImageURL} />
-          <Card.Body>
-            <Card.Title>{item.tags}</Card.Title>
-          </Card.Body>
-        </CardStyled>
-      </li>
-    ))}
-  </ListCards>
-);
+    <ListCards>
+      {itemsList.map(item => (
+        <li key={item.id + Number(Math.random().toString().slice(2,15))}>
+          <CardStyled>
+            <CardImgStyled variant="top" src={item.largeImageURL} />
+            <Card.Body>
+              <Card.Title>{item.tags}</Card.Title>
+            </Card.Body>
+          </CardStyled>
+        </li>
+      ))}
+    </ListCards>
+  );
 
 export default Cards;

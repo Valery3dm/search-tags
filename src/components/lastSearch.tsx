@@ -9,7 +9,12 @@ interface Props {
 };
 
 const LastSearch: React.FC<Props> = ({ listOfThreeLastItems }) => {  
-  const { fetchItemsAction, setIsLoaded, setInputItemAction } = useActions();
+  const {
+    fetchItemsAction,
+    setIsLoaded,
+    setInputItemAction,
+    setEmtyItemList
+  } = useActions();
 
   const onSetInputItemAction = (item: string) => new Promise(resolve =>
     resolve (
@@ -27,9 +32,12 @@ const LastSearch: React.FC<Props> = ({ listOfThreeLastItems }) => {
 
   const onFetchItemsAction = () => new Promise(resolve => resolve(fetchItemsAction()));
 
+  const onSetEmtyItemList = (arr: any[]) => new Promise(resolve => resolve(setEmtyItemList(arr)));
+
   const handleSetTags = async (item: string)=> {
     return (
       await onSetInputItemAction(item),
+      await onSetEmtyItemList([]),
       await onFetchItemsAction(),
       await onSetIsLoaded()
     )

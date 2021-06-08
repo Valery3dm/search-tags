@@ -21,6 +21,14 @@ const SingleDuck = () => {
                 type: ItemActionType.SET_FETCHED_ITEMS,
                 payload
             }),
+            setNewFetchedItemsListAction: (payload: object[]): ItemAction => ({
+                type: ItemActionType.SET_NEW_FETCHED_ITEMS,
+                payload
+            }),
+            setEmtyItemList: (payload: object[]): ItemAction => ({
+                type: ItemActionType.SET_EMTY_ITEM_LIST,
+                payload
+            }),
             setThreeLastAction: (payload: string): ItemAction => ({
                 type: ItemActionType.SET_THREE_LAST_ITEMS,
                 payload
@@ -51,6 +59,16 @@ const SingleDuck = () => {
                                 ...state.itemsList,
                                 ...action.payload
                             ]
+                        };
+                    case ItemActionType.SET_NEW_FETCHED_ITEMS:
+                        return {
+                            ...state,
+                            itemsList: action.payload
+                        };
+                    case ItemActionType.SET_EMTY_ITEM_LIST:
+                        return {
+                            ...state,
+                            itemsList: action.payload
                         };
                     case ItemActionType.SET_THREE_LAST_ITEMS:
                         return {
@@ -86,8 +104,7 @@ const SingleDuck = () => {
         const state: ItemsState = yield select();
         const allData: FechedDataView = yield call(() => fetchApi(state));
         const arrData: object[] = yield call(() => allData.hits);
-
-            yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
+        yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
 
     };
 

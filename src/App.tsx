@@ -23,19 +23,20 @@ const App: React.FC = () => {
   const handleFetch = () => new Promise(res => res(fetchItemsAction()))
 
   useEffect(() => {
+    
     const scrollHandler = async (e: any) => {
       if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
         await handlerPage();
         await handleFetch();
       }
     }
+
     document.addEventListener('scroll', scrollHandler);
+
     return function() {
       document.removeEventListener('scroll', scrollHandler);
     }
   },[]);
-
-  
 
   return (
     <AppStyled>

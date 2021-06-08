@@ -9,6 +9,8 @@ export interface ItemsState {
 export enum ItemActionType {
     FETCH_ITEMS = 'search-tags/reducer/FETCH_ITEMS',
     SET_FETCHED_ITEMS = 'search-tags/reducer/SET_FETCHED_ITEMS',
+    SET_NEW_FETCHED_ITEMS = 'search-tags/reducer/SET_NEW_FETCHED_ITEMS',
+    SET_EMTY_ITEM_LIST = 'search-tags/reducer/SET_EMTY_ITEM_LIST',
     SET_THREE_LAST_ITEMS = 'search-tags/reducer/SET_THREE_LASTITEMS',
     SET_INPUT_ITEM = 'search-tags/reducer/SET_INPUT_ITEM',
     SET_PAGE = 'search-tags/reducer/SET_PAGE',
@@ -27,6 +29,16 @@ interface FetchItemsAction {
 
 interface SetFetchedItemsListAction {
     type: ItemActionType.SET_FETCHED_ITEMS;
+    payload: object[];
+}
+
+interface SetEmtyItemListAction{
+    type: ItemActionType.SET_EMTY_ITEM_LIST;
+    payload: object[];
+}
+
+interface SetNewFetchedItemsListAction {
+    type: ItemActionType.SET_NEW_FETCHED_ITEMS;
     payload: object[];
 }
 
@@ -53,6 +65,8 @@ interface SetIsLoaded {
 export type ItemAction =
     FetchItemsAction
     | SetFetchedItemsListAction
+    | SetNewFetchedItemsListAction
+    | SetEmtyItemListAction
     | SetThreeLastAction
     | SetInputItemAction
     | setPage

@@ -15,7 +15,8 @@ const SearchPanel: React.FC = () => {
     setIsLoaded,
     fetchItemsAction,
     setThreeLastAction,
-    setInputItemAction
+    setInputItemAction,
+    setEmtyItemList
   } = useActions();
 
   const { inputItem } = useSelector((state: ItemsState) => state);
@@ -41,8 +42,11 @@ const SearchPanel: React.FC = () => {
   });
 
   const handleOnChangeInputItemAction = (inputItem: string) => setInputItemAction(inputItem);
+  
+  const onSetEmtyItemList = (arr: any[]) => new Promise(resolve => resolve(setEmtyItemList(arr)));
 
   const handleSetTags = async (inputItem: string) => {
+    await onSetEmtyItemList([]);
     await onFetchItemsAction();
     await onSetThreeLastAction(inputItem);
     await onSetIsLoaded(inputItem);
