@@ -37,11 +37,6 @@ interface SetEmtyItemListAction{
     payload: object[];
 }
 
-interface SetNewFetchedItemsListAction {
-    type: ItemActionType.SET_NEW_FETCHED_ITEMS;
-    payload: object[];
-}
-
 interface SetThreeLastAction {
     type: ItemActionType.SET_THREE_LAST_ITEMS;
     payload: string;
@@ -65,7 +60,6 @@ interface SetIsLoaded {
 export type ItemAction =
     FetchItemsAction
     | SetFetchedItemsListAction
-    | SetNewFetchedItemsListAction
     | SetEmtyItemListAction
     | SetThreeLastAction
     | SetInputItemAction

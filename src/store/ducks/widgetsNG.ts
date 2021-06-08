@@ -21,10 +21,6 @@ const SingleDuck = () => {
                 type: ItemActionType.SET_FETCHED_ITEMS,
                 payload
             }),
-            setNewFetchedItemsListAction: (payload: object[]): ItemAction => ({
-                type: ItemActionType.SET_NEW_FETCHED_ITEMS,
-                payload
-            }),
             setEmtyItemList: (payload: object[]): ItemAction => ({
                 type: ItemActionType.SET_EMTY_ITEM_LIST,
                 payload
@@ -59,11 +55,6 @@ const SingleDuck = () => {
                                 ...state.itemsList,
                                 ...action.payload
                             ]
-                        };
-                    case ItemActionType.SET_NEW_FETCHED_ITEMS:
-                        return {
-                            ...state,
-                            itemsList: action.payload
                         };
                     case ItemActionType.SET_EMTY_ITEM_LIST:
                         return {

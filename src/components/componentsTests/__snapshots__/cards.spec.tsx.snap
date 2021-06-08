@@ -3,7 +3,7 @@
 exports[`Cards component Cards Snapshot component 1`] = `
 <styled.ul>
   <li
-    key="1"
+    key="2113734336049"
   >
     <Styled(Card)>
       <Styled(CardImg)
@@ -18,7 +18,7 @@ exports[`Cards component Cards Snapshot component 1`] = `
     </Styled(Card)>
   </li>
   <li
-    key="2"
+    key="3700416099399"
   >
     <Styled(Card)>
       <Styled(CardImg)
@@ -33,7 +33,7 @@ exports[`Cards component Cards Snapshot component 1`] = `
     </Styled(Card)>
   </li>
   <li
-    key="3"
+    key="6808999510995"
   >
     <Styled(Card)>
       <Styled(CardImg)

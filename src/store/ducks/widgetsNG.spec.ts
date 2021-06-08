@@ -8,6 +8,7 @@ let actionCreators = SingleDuck().actionCreators()
         itemsList: [],
         listOfThreeLastItems: [],
         inputItem: '',
+        page: 1,
         isLoaded: false
     };
 
@@ -45,6 +46,7 @@ describe('REDUCER', () => {
 });
 
 describe('ACTIONS', () => {
+    
     it('set Fetched Items List Action', () => {
         expect(ItemActionType.SET_FETCHED_ITEMS).toBe('search-tags/reducer/SET_FETCHED_ITEMS');
     });
