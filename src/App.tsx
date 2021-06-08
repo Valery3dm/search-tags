@@ -20,7 +20,7 @@ const App: React.FC = () => {
   let { page } = useSelector((state: ItemsState) => state);
 
   const handlerPage = () => new Promise(res => res(setPage(++page)));
-  const handleFetch = () => new Promise(res => res(fetchItemsAction()))
+  const handleFetch = () => new Promise(res => res(fetchItemsAction()));
 
   useEffect(() => {
     

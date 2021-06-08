@@ -7,8 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { SearchPanel } from '../index';
 
-
-
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Search-Panel component', () => {
@@ -21,6 +19,6 @@ describe('Search-Panel component', () => {
                 </BrowserRouter>
             </Provider>
         );
-        expect(toJson(component)).toMatchSnapshot();
+        expect(toJson(component.find(SearchPanel))).toMatchSnapshot();
     });
-})
+});

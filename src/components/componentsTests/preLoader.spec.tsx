@@ -22,5 +22,4 @@ describe('PreLoader component:', () => {
     it('PreLoader includes &lt; 🌸 &gt;', () => {
         expect(component.find(Rotate).render().text()).toBe('< 🌸 >');
     });
-
 });

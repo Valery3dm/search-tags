@@ -41,7 +41,7 @@ const SingleDuck = () => {
                 type: ItemActionType.SET_IS_LOADED,
                 payload
             })
-        }
+        };
     };
 
     const reducers = () => {
@@ -88,7 +88,7 @@ const SingleDuck = () => {
                         return state;
                 }
             }
-        }
+        };
     };
 
     function* sagaFetchItemsWorker() {
@@ -96,11 +96,10 @@ const SingleDuck = () => {
         const allData: FechedDataView = yield call(() => fetchApi(state));
         const arrData: object[] = yield call(() => allData.hits);
         yield put(SingleDuck().actionCreators().setFetchedItemsListAction(arrData));
-
     };
 
     function* sagaFetchItemsWatcher(): Generator<StrictEffect> {
-        yield takeEvery(ItemActionType.FETCH_ITEMS, SingleDuck().sagaFetchItemsWorker)
+        yield takeEvery(ItemActionType.FETCH_ITEMS, SingleDuck().sagaFetchItemsWorker);
     };
 
     return {
@@ -109,6 +108,6 @@ const SingleDuck = () => {
         sagaFetchItemsWatcher,
         sagaFetchItemsWorker
     };
-}
+};
 
 export default SingleDuck;

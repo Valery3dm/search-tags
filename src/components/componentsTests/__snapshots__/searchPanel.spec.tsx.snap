@@ -1,106 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search-Panel component SearchPanel Snapshot component: 1`] = `
-<Provider
-  store={
-    Object {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <BrowserRouter>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+<SearchPanel>
+  <Styled(Component)>
+    <ForwardRef(InputGroup)
+      className="sc-fujyAs kTYqnT"
     >
-      <SearchPanel>
-        <Styled(Component)>
-          <ForwardRef(InputGroup)
-            className="sc-fujyAs kTYqnT"
+      <div
+        className="sc-fujyAs kTYqnT input-group"
+      >
+        <FormControl
+          aria-describedby="basic-addon2"
+          aria-label="Recipient's username"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          placeholder="type your tag here"
+          value=""
+        >
+          <input
+            aria-describedby="basic-addon2"
+            aria-label="Recipient's username"
+            className="form-control"
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            placeholder="type your tag here"
+            value=""
+          />
+        </FormControl>
+        <InputGroupAppend>
+          <div
+            className="input-group-append"
           >
-            <div
-              className="sc-fujyAs kTYqnT input-group"
+            <Link
+              to="/"
             >
-              <FormControl
-                aria-describedby="basic-addon2"
-                aria-label="Recipient's username"
-                onChange={[Function]}
-                onKeyPress={[Function]}
-                placeholder="type your tag here"
-                value=""
+              <LinkAnchor
+                href="/"
+                navigate={[Function]}
               >
-                <input
-                  aria-describedby="basic-addon2"
-                  aria-label="Recipient's username"
-                  className="form-control"
-                  onChange={[Function]}
-                  onKeyPress={[Function]}
-                  placeholder="type your tag here"
-                  value=""
-                />
-              </FormControl>
-              <InputGroupAppend>
-                <div
-                  className="input-group-append"
+                <a
+                  href="/"
+                  onClick={[Function]}
                 >
-                  <Link
-                    to="/"
+                  <Button
+                    active={false}
+                    disabled={false}
+                    onClick={[Function]}
+                    variant="outline-secondary"
                   >
-                    <LinkAnchor
-                      href="/"
-                      navigate={[Function]}
+                    <button
+                      className="btn btn-outline-secondary"
+                      disabled={false}
+                      onClick={[Function]}
+                      type="button"
                     >
-                      <a
-                        href="/"
-                        onClick={[Function]}
-                      >
-                        <Button
-                          active={false}
-                          disabled={false}
-                          onClick={[Function]}
-                          variant="outline-secondary"
-                        >
-                          <button
-                            className="btn btn-outline-secondary"
-                            disabled={false}
-                            onClick={[Function]}
-                            type="button"
-                          >
-                            Search
-                          </button>
-                        </Button>
-                      </a>
-                    </LinkAnchor>
-                  </Link>
-                </div>
-              </InputGroupAppend>
-            </div>
-          </ForwardRef(InputGroup)>
-        </Styled(Component)>
-      </SearchPanel>
-    </Router>
-  </BrowserRouter>
-</Provider>
+                      Search
+                    </button>
+                  </Button>
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+        </InputGroupAppend>
+      </div>
+    </ForwardRef(InputGroup)>
+  </Styled(Component)>
+</SearchPanel>
 `;

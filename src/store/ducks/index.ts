@@ -5,4 +5,4 @@ export const rootReducer = combineReducers({
     item: SingleDuck().reducers().reducer
 });
 
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
