@@ -3,7 +3,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import Card from 'react-bootstrap/Card';
 
-import { Cards } from '../';
+import { Cards } from '../../components';
 
 import { CardImgStyled, CardStyled, ListCards } from '../../styled';
 
@@ -32,27 +32,27 @@ describe('Cards component', () => {
         <Cards itemsList={itemsList}/>
     );
 
-    it('Cards Snapshot component', () => {
+    it('should render Cards component snapshot', () => {
         expect(toJson(component)).toMatchSnapshot();
     });
 
-    it('find ListCards', () => {
+    it('should find ListCards', () => {
         expect(component.find(ListCards)).toHaveLength(1);
     });
 
-    it('find CardStyled', () => {
+    it('should find CardStyled', () => {
         expect(component.find(CardStyled)).toHaveLength(3);
     });
 
-    it('find CardImgStyled', () => {
+    it('should find CardImgStyled', () => {
         expect(component.find(CardImgStyled)).toHaveLength(3);
     });
 
-    it('find Card.Body', () => {
+    it('should find Card.Body', () => {
         expect(component.find(Card.Body)).toHaveLength(3);
     });
 
-    it('find Card.Title', () => {
+    it('should find Card.Title', () => {
         expect(component.find(Card.Title)).toHaveLength(3);
     });
 });

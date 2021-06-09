@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import store from '../../store';
 import { BrowserRouter } from 'react-router-dom';
 
-import { LastSearch } from '../index';
+import { LastSearch } from '../../components/index';
 
 import { LastItemSearch, LastThreeItemSearch } from '../../styled';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Last-Search component', () => {
+describe('LastSearch component', () => {
     const listOfThreeLastItems = ['item1','item2','item3'];
     
     const component = mount(
@@ -22,23 +22,23 @@ describe('Last-Search component', () => {
         </Provider>
     );
 
-    it('LastSearch Snapshot component', () => {
+    it('should render LastSearch component snapshot', () => {
         expect(toJson(component)).toMatchSnapshot();
     });
-
-    it('find LastSearch', () => {
+    
+    it('should find LastSearch', () => {
         expect(component.find(LastSearch)).toHaveLength(1);
     });
     
-    it('find BrowserRouter', () => {
+    it('should find BrowserRouter', () => {
         expect(component.find(BrowserRouter)).toHaveLength(1);
     });
 
-    it('find LastItemSearch', () => {
+    it('should find LastItemSearch', () => {
         expect(component.find(LastItemSearch)).toHaveLength(1);
     });
 
-    it('find LastThreeItemSearch', () => {
+    it('should find LastThreeItemSearch', () => {
         expect(component.find(LastThreeItemSearch)).toHaveLength(1);
     });
 });

@@ -1,4 +1,4 @@
-import fetchApi from './api';
+import fetchApi from '../api';
 
 let state = {
     itemsList: [],
@@ -9,13 +9,13 @@ let state = {
 };
 
 describe('api', () => {
-    it('check empty value api',async () => {
+    it('should check empty value api',async () => {
         const objItems = await fetchApi(state);
         const arrItems = objItems.hits;
         expect(arrItems).toHaveLength(20);
     });
 
-    it('check null value api',async () => {
+    it('should check null value api',async () => {
         state.inputItem = 'unreal value of key'
         const objItems = await fetchApi(state);
         const arrItems = objItems.hits;

@@ -6,7 +6,7 @@ import { LastItemSearch, ButtonStyled, LastThreeItemSearch } from '../styled';
 
 interface Props {
   listOfThreeLastItems: string[];
-};
+}
 
 const LastSearch: React.FC<Props> = ({ listOfThreeLastItems }) => {  
   const {
