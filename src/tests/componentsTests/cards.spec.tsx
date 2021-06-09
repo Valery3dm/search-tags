@@ -1,4 +1,4 @@
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import Card from 'react-bootstrap/Card';
@@ -31,6 +31,10 @@ describe('Cards component', () => {
     const component = shallow(
         <Cards itemsList={itemsList}/>
     );
+    
+    it('should render', () => {
+        expect(component.exists()).toBe(true);
+    });
 
     it('should render Cards component snapshot', () => {
         expect(toJson(component)).toMatchSnapshot();

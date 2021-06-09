@@ -12,12 +12,12 @@ import { LastItemSearch, LastThreeItemSearch } from '../../styled';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('LastSearch component', () => {
-    const listOfThreeLastItems = ['item1','item2','item3'];
+    const props = ['item1','item2','item3'];
     
     const component = mount(
         <Provider store={store}>
             <BrowserRouter>
-                <LastSearch listOfThreeLastItems={listOfThreeLastItems}/>
+                <LastSearch listOfThreeLastItems={props}/>
             </BrowserRouter>
         </Provider>
     );
