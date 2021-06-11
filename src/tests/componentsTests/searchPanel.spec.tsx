@@ -1,4 +1,4 @@
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import store from '../../store';
 
 import { SearchPanel } from '../../components/index';
 import { SearchPanelStyle } from '../../styled';
+import { Component } from 'react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
